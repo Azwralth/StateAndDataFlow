@@ -8,9 +8,19 @@
 import Combine
 
 final class LoginViewViewModel: ObservableObject {
-    @Published var user = User()
+    @Published var name = ""
+    @Published var isLoggedIn = false
+    
+    private let storageManager = StorageManager.shared
     
     var isNameValid: Bool {
-        user.name.count >= 3
+        name.count >= 3
+    }
+    
+    func logIn() {
+        if !name.isEmpty {
+            isLoggedIn.toggle()
+            storageManager.save(name: name, isRegistered: true)
+        }
     }
 }

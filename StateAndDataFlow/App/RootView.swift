@@ -10,12 +10,11 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject private var loginViewVM: LoginViewViewModel
     
+    private let storageManager = StorageManager.shared
+    
     var body: some View {
-        if loginViewVM.user.isRegistered {
+        if storageManager.isRegistered {
             ContentView()
-                .onAppear(perform: {
-                    loginViewVM.user = StorageManager.shared.read()
-                })
         } else {
             LoginView()
         }

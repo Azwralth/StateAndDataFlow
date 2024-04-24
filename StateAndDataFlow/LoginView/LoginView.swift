@@ -13,19 +13,14 @@ struct LoginView: View {
     var body: some View {
         VStack {
             ExtractedView(
-                name: $loginViewVM.user.name,
+                name: $loginViewVM.name,
                 nameIsValid: loginViewVM.isNameValid
             )
         }
-        Button(action: login) {
+        Button(action: loginViewVM.logIn) {
             Label("OK", systemImage: "checkmark.circle")
         }
         .disabled(!loginViewVM.isNameValid)
-    }
-    
-    private func login() {
-        loginViewVM.user.isRegistered.toggle()
-        StorageManager.shared.save(user: loginViewVM.user)
     }
 }
 

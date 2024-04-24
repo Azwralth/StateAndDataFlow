@@ -10,6 +10,8 @@ import Observation
 
 @Observable
 final class ContentViewViewModel {
+    private let storageManager = StorageManager.shared
+    
     var counter = 3
     var buttonTitle = "Start"
     
@@ -40,6 +42,12 @@ final class ContentViewViewModel {
     private func killTimer() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    func logOut() {
+        if storageManager.isRegistered {
+            storageManager.delete()
+        }
     }
     
     private func buttonDidTapped() {

@@ -8,6 +8,6 @@
 import Foundation
 
 struct User: Codable {
-    var name = ""
-    var isRegistered = false
+    var name: String
+    var isRegistered: Bool
 }

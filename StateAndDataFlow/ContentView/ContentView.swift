@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     private var contentViewVM = ContentViewViewModel()
+    private let storageManager = StorageManager.shared
     @EnvironmentObject private var loginViewVM: LoginViewViewModel
     
     var body: some View {
         VStack {
-            Text("Hi, \(loginViewVM.user.name)")
+            Text("Hi, \(storageManager.read().name)")
                 .font(.title)
                 .padding(.top, 100)
             Text(contentViewVM.counter.formatted())
@@ -25,7 +26,8 @@ struct ContentView: View {
             ButtonView(color: .red, title: contentViewVM.buttonTitle, action: contentViewVM.startTimer)
             
             ButtonView(color: .blue, title: "LogOut") {
-                StorageManager.shared.delete(userModel: loginViewVM)
+                contentViewVM.logOut()
+                loginViewVM.name = ""
             }
                 .padding(.top, 40)
             
