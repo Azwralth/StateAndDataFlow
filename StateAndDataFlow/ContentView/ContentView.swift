@@ -41,38 +41,3 @@ struct ContentView: View {
     ContentView()
         .environmentObject(LoginViewViewModel())
 }
-
-struct StartButtonView: View {
-    let contentViewVM: ContentViewViewModel
-    
-    var body: some View {
-        Button(action: contentViewVM.startTimer) {
-            Text(contentViewVM.buttonTitle)
-                .font(.title)
-                .bold()
-                .foregroundStyle(.white)
-        }
-        .frame(width: 200, height: 60)
-        .background(.red)
-        .clipShape(.rect(cornerRadius: 20))
-        .overlay(RoundedRectangle(cornerRadius: 20)
-            .stroke(lineWidth: 4))
-    }
-}
-
-struct LogOutButtonView: View {
-    var body: some View {
-        Button(action: {}) {
-            Text("LogOut")
-                .font(.title)
-                .bold()
-                .foregroundStyle(.white)
-        }
-        .frame(width: 200, height: 60)
-        .background(.blue)
-        .clipShape(.rect(cornerRadius: 20))
-        .overlay(RoundedRectangle(cornerRadius: 20)
-            .stroke(lineWidth: 4))
-        .padding(.top, 40)
-    }
-}

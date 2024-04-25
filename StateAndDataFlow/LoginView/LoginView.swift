@@ -12,7 +12,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            ExtractedView(
+            TextFieldView(
                 name: $loginViewVM.name,
                 nameIsValid: loginViewVM.isNameValid
             )
@@ -29,7 +29,7 @@ struct LoginView: View {
         .environmentObject(LoginViewViewModel())
 }
 
-struct ExtractedView: View {
+struct TextFieldView: View {
     @Binding var name: String
     var nameIsValid: Bool
     

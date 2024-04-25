@@ -30,6 +30,12 @@ final class ContentViewViewModel {
         buttonDidTapped()
     }
     
+    func logOut() {
+        if storageManager.isRegistered {
+            storageManager.delete()
+        }
+    }
+    
     @objc private func updateCounter() {
         if counter > 0 {
             counter -= 1
@@ -42,12 +48,6 @@ final class ContentViewViewModel {
     private func killTimer() {
         timer?.invalidate()
         timer = nil
-    }
-    
-    func logOut() {
-        if storageManager.isRegistered {
-            storageManager.delete()
-        }
     }
     
     private func buttonDidTapped() {
