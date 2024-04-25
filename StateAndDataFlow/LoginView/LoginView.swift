@@ -13,7 +13,7 @@ struct LoginView: View {
     var body: some View {
         VStack {
             TextFieldView(
-                name: $loginViewVM.name,
+                name: $loginViewVM.user.name,
                 nameIsValid: loginViewVM.isNameValid
             )
         }

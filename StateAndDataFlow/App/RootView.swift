@@ -13,7 +13,7 @@ struct RootView: View {
     private let storageManager = StorageManager.shared
     
     var body: some View {
-        if storageManager.isRegistered {
+        if storageManager.read().isLoggedIn {
             ContentView()
         } else {
             LoginView()

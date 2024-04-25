@@ -31,7 +31,7 @@ final class ContentViewViewModel {
     }
     
     func logOut() {
-        if storageManager.isRegistered {
+        if storageManager.read().isLoggedIn {
             storageManager.delete()
         }
     }

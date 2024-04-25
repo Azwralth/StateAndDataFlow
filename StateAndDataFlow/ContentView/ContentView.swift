@@ -27,7 +27,7 @@ struct ContentView: View {
             
             ButtonView(color: .blue, title: "LogOut") {
                 contentViewVM.logOut()
-                loginViewVM.name = ""
+                loginViewVM.user.name = ""
             }
                 .padding(.top, 40)
             
